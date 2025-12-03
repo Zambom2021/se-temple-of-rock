@@ -55,7 +55,10 @@ jobs:
         run: mvn -B install -DskipTests
 
       # Rodar testes Selenium
-      - name: Run Selenium Tests
+      - name: Remove outdated ChromeDriver
+        run: sudo rm -f /usr/bin/chromedriver
+
+      - name: Run tests
         run: mvn -B test
 
       # Gerar Allure report

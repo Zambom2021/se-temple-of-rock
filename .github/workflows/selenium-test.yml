@@ -29,10 +29,14 @@ jobs:
         run: |
           cd app
           docker compose up -d --build
+
           echo "Aguardando backend ficar pronto..."
-          for i in {1..30}; do
-            curl -s http://localhost:9090/health && break
-            echo "Aguardando 3s..."
+          for i in {1..40}; do
+            if curl -s http://localhost:9090/web/ >/dev/null; then
+              echo "Backend OK"
+              break
+            fi
+            echo "Backend ainda iniciando... ($i)"
             sleep 3
           done
 
@@ -43,11 +47,31 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      # Instalar Chrome
-      - name: Install Google Chrome
+      # Instalar Google Chrome e ChromeDriver compatível
+      - name: Install Google Chrome + Driver
         run: |
+          sudo apt-get update
+          sudo apt-get install -y unzip xvfb
+
           wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install -y ./google-chrome-stable_current_amd64.deb
+
+          # Obtém versão do Chrome
+          CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
+          CHROME_MAJOR=$(echo $CHROME_VERSION | cut -d. -f1)
+
+          echo "Chrome Version: $CHROME_VERSION"
+
+          # Baixa ChromeDriver compatível automaticamente
+          DRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION/linux64/chromedriver-linux64.zip"
+
+          echo "Downloading ChromeDriver: $DRIVER_URL"
+          wget -q $DRIVER_URL -O driver.zip
+          unzip driver.zip
+          sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
+          sudo chmod +x /usr/bin/chromedriver
+
+          chromedriver --version
           google-chrome --version
 
       # Instalar dependências Maven
@@ -55,9 +79,6 @@ jobs:
         run: mvn -B install -DskipTests
 
       # Rodar testes Selenium
-      - name: Remove outdated ChromeDriver
-        run: sudo rm -f /usr/bin/chromedriver
-
       - name: Run tests
         run: mvn -B test
 

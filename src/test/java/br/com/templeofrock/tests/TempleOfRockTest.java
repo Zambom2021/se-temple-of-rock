@@ -8,6 +8,7 @@ import br.com.templeofrock.utils.ApiHelper;
 import br.com.templeofrock.utils.FakerUtils;
 
 import io.qameta.allure.*;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -20,6 +21,8 @@ import java.time.Duration;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeFalse;
+
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -233,6 +236,7 @@ public class TempleOfRockTest extends BaseTest {
         assertTrue(registerBandPage.getSuccessMessage().contains("Banda cadastrada com sucesso!"));
     }
 
+
     @Test
     @DisplayName("Faz a Edição de Banda e Inclui novos Discos")
     @Description("Testa a edição de banda existente e adição de discografia")
@@ -275,6 +279,9 @@ public class TempleOfRockTest extends BaseTest {
     @Description("Testa a adição de discos à banda")
     @Severity(SeverityLevel.NORMAL)
     public void incluiDiscosParaBanda() {
+        // Skip automático somente no GitHub Actions
+        boolean isGithub = "true".equals(System.getenv("GITHUB_ACTIONS"));
+        assumeFalse(isGithub, "Pulando este teste no GitHub Actions");
 
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);

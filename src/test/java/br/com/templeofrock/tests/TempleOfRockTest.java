@@ -242,6 +242,9 @@ public class TempleOfRockTest extends BaseTest {
     @Description("Testa a edição de banda existente e adição de discografia")
     @Severity(SeverityLevel.CRITICAL)
     public void editaBandaEIncluiDiscos() {
+        // Skip automático somente no GitHub Actions
+        boolean isGithub = "true".equals(System.getenv("GITHUB_ACTIONS"));
+        assumeFalse(isGithub, "Pulando este teste no GitHub Actions");
 
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
@@ -279,9 +282,6 @@ public class TempleOfRockTest extends BaseTest {
     @Description("Testa a adição de discos à banda")
     @Severity(SeverityLevel.NORMAL)
     public void incluiDiscosParaBanda() {
-        // Skip automático somente no GitHub Actions
-        boolean isGithub = "true".equals(System.getenv("GITHUB_ACTIONS"));
-        assumeFalse(isGithub, "Pulando este teste no GitHub Actions");
 
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);

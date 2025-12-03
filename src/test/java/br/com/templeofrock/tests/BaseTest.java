@@ -24,15 +24,16 @@ public class BaseTest {
 
     @BeforeEach
     public void setup() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--headless=new");
 
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // CORREÇÃO!
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");           // Modo headless necessário no GitHub Actions
+        options.addArguments("--disable-gpu");
+        options.addArguments("--no-sandbox");             // Obrigatório para Linux CI
+        options.addArguments("--disable-dev-shm-usage");  // Evita falta de memória /dev/shm
+        options.addArguments("--window-size=1920,1080");
+
+        driver = new ChromeDriver(options);  // ← AGORA USA AS OPÇÕES CORRETAMENTE
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @AfterEach

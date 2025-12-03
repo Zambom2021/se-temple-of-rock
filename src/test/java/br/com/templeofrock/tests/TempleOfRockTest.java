@@ -257,7 +257,9 @@ public class TempleOfRockTest extends BaseTest {
 
         editBandPage.searchBand("Iron Believe");
 
-        waitVisible("#editGenre");
+        // Espera o formulário aparecer antes de continuar
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("editGenre")));
 
         editBandPage.updateBandInfo(genre, members, country);
         editBandPage.updateDiscography(newDiscs);

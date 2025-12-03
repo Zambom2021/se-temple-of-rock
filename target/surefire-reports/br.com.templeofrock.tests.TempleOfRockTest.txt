@@ -1,20 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: br.com.templeofrock.tests.TempleOfRockTest
 -------------------------------------------------------------------------------
-Tests run: 16, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 76.17 s <<< FAILURE! -- in br.com.templeofrock.tests.TempleOfRockTest
-br.com.templeofrock.tests.TempleOfRockTest.cadastraNovaBanda -- Time elapsed: 19.21 s <<< ERROR!
-org.openqa.selenium.TimeoutException: 
-Expected condition failed: waiting for visibility of element located by By.cssSelector: .success (tried for 10 second(s) with 500 milliseconds interval)
-Build info: version: '4.20.0', revision: '866c76ca80'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.9'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.177, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\rzamb\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51686}, goog:processID: 19372, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51686/devtoo..., se:cdpVersion: 142.0.7444.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: ff0aa56355018acefc0266f5372b9751
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at br.com.templeofrock.pages.RegisterBandPage.registerBand(RegisterBandPage.java:31)
-	at br.com.templeofrock.tests.TempleOfRockTest.cadastraNovaBanda(TempleOfRockTest.java:229)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 64.23 s -- in br.com.templeofrock.tests.TempleOfRockTest

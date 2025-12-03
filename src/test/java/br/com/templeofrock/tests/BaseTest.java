@@ -24,13 +24,23 @@ public class BaseTest {
 
     @BeforeEach
     public void setup() {
-
+        
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");           // Modo headless necessário no GitHub Actions
-        options.addArguments("--disable-gpu");
-        options.addArguments("--no-sandbox");             // Obrigatório para Linux CI
-        options.addArguments("--disable-dev-shm-usage");  // Evita falta de memória /dev/shm
-        options.addArguments("--window-size=1920,1080");
+
+        // Lê a variável de ambiente HEADLESS (true/false)
+        boolean headless = "true".equalsIgnoreCase(System.getenv("HEADLESS"));
+
+        if (headless) {
+            System.out.println(">>>> Rodando em modo HEADLESS");
+            options.addArguments("--headless=new");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+        } else {
+            System.out.println(">>>> Rodando com navegador VISÍVEL");
+            options.addArguments("--start-maximized");
+        }
 
         driver = new ChromeDriver(options);  // ← AGORA USA AS OPÇÕES CORRETAMENTE
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));

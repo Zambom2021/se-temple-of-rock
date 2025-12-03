@@ -78,7 +78,7 @@ jobs:
 
       # Rodar testes Selenium
       - name: Run tests
-        run: mvn -B test
+        run: HEADLESS=true mvn -B test
 
       # Gerar Allure report
       - name: Generate Allure Report

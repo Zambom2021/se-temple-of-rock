@@ -1,0 +1,12 @@
+br\com\templeofrock\pages\OptionsPage.class
+br\com\templeofrock\pages\RegisterBandPage.class
+br\com\templeofrock\models\Band.class
+br\com\templeofrock\pages\EditBandPage.class
+br\com\templeofrock\utils\ApiHelper.class
+br\com\templeofrock\models\User.class
+br\com\templeofrock\pages\BandDetailsPage.class
+br\com\templeofrock\pages\BasePage.class
+br\com\templeofrock\pages\HomePage.class
+br\com\templeofrock\utils\FakerUtils.class
+br\com\templeofrock\models\Disc.class
+br\com\templeofrock\pages\LoginPage.class

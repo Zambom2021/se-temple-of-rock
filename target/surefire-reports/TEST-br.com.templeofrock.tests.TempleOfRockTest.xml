@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="br.com.templeofrock.tests.TempleOfRockTest" time="76.168" tests="16" errors="1" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="D:\Projetos_QA\Projeto JAVA\SE_temple_of_rock\project_temple\templeofrock\target\test-classes;D:\Projetos_QA\Projeto JAVA\SE_temple_of_rock\project_temple\templeofrock\target\classes;C:\Users\rzamb\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\rzamb\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\rzamb\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\rzamb\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\rzamb\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\rzamb\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\rzamb\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\rzamb\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-java\4.20.0\selenium-java-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-api\4.20.0\selenium-api-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.20.0\selenium-chrome-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.20.0\selenium-chromium-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-json\4.20.0\selenium-json-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.20.0\selenium-manager-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v122\4.20.0\selenium-devtools-v122-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v123\4.20.0\selenium-devtools-v123-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v124\4.20.0\selenium-devtools-v124-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.20.0\selenium-devtools-v85-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.20.0\selenium-edge-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.20.0\selenium-firefox-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-http\4.20.0\selenium-http-4.20.0.jar;C:\Users\rzamb\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.20.0\selenium-ie-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.20.0\selenium-remote-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\com\google\guava\guava\33.1.0-jre\guava-33.1.0-jre.jar;C:\Users\rzamb\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\rzamb\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\rzamb\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\rzamb\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\rzamb\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-api\1.37.0\opentelemetry-api-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-context\1.37.0\opentelemetry-context-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.37.0\opentelemetry-exporter-logging-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.37.0\opentelemetry-sdk-common-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.37.0\opentelemetry-sdk-extension-autoconfigure-spi-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.37.0\opentelemetry-sdk-extension-autoconfigure-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.37.0-alpha\opentelemetry-api-incubator-1.37.0-alpha.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.37.0\opentelemetry-sdk-trace-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.37.0\opentelemetry-sdk-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.37.0\opentelemetry-sdk-metrics-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.37.0\opentelemetry-sdk-logs-1.37.0.jar;C:\Users\rzamb\.m2\repository\net\bytebuddy\byte-buddy\1.14.14\byte-buddy-1.14.14.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-os\4.20.0\selenium-os-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.20.0\selenium-safari-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-support\4.20.0\selenium-support-4.20.0.jar;C:\Users\rzamb\.m2\repository\com\codeborne\selenide\7.12.0\selenide-7.12.0.jar;C:\Users\rzamb\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\rzamb\.m2\repository\com\codeborne\selenide-core\7.12.0\selenide-core-7.12.0.jar;C:\Users\rzamb\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.5.1\httpclient5-5.5.1.jar;C:\Users\rzamb\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.3.6\httpcore5-5.3.6.jar;C:\Users\rzamb\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.3.6\httpcore5-h2-5.3.6.jar;C:\Users\rzamb\.m2\repository\com\github\valfirst\browserup-proxy\browserup-proxy-core\3.2.2\browserup-proxy-core-3.2.2.jar;C:\Users\rzamb\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\rzamb\.m2\repository\com\google\errorprone\error_prone_annotations\2.43.0\error_prone_annotations-2.43.0.jar;C:\Users\rzamb\.m2\repository\org\apache\commons\commons-lang3\3.19.0\commons-lang3-3.19.0.jar;C:\Users\rzamb\.m2\repository\commons-io\commons-io\2.20.0\commons-io-2.20.0.jar;C:\Users\rzamb\.m2\repository\com\github\javafaker\javafaker\1.0.2\javafaker-1.0.2.jar;C:\Users\rzamb\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23-android.jar;C:\Users\rzamb\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\rzamb\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;C:\Users\rzamb\.m2\repository\com\google\code\gson\gson\2.11.0\gson-2.11.0.jar;C:\Users\rzamb\.m2\repository\io\qameta\allure\allure-junit5\2.16.1\allure-junit5-2.16.1.jar;C:\Users\rzamb\.m2\repository\io\qameta\allure\allure-junit-platform\2.16.1\allure-junit-platform-2.16.1.jar;C:\Users\rzamb\.m2\repository\io\qameta\allure\allure-java-commons\2.16.1\allure-java-commons-2.16.1.jar;C:\Users\rzamb\.m2\repository\io\qameta\allure\allure-model\2.16.1\allure-model-2.16.1.jar;C:\Users\rzamb\.m2\repository\io\qameta\allure\allure-test-filter\2.16.1\allure-test-filter-2.16.1.jar;C:\Users\rzamb\.m2\repository\org\junit\platform\junit-platform-launcher\1.10.2\junit-platform-launcher-1.10.2.jar;C:\Users\rzamb\.m2\repository\org\slf4j\slf4j-simple\2.0.7\slf4j-simple-2.0.7.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="America/Sao_Paulo"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="BR"/>
+    <property name="sun.boot.library.path" value="C:\java\bin"/>
+    <property name="sun.java.command" value="C:\Users\rzamb\AppData\Local\Temp\surefire956245672687223188\surefirebooter-20251203143645962_3.jar C:\Users\rzamb\AppData\Local\Temp\surefire956245672687223188 2025-12-03T14-36-45_535-jvmRun1 surefire-20251203143645962_1tmp surefire_0-20251203143645962_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\Projetos_QA\Projeto JAVA\SE_temple_of_rock\project_temple\templeofrock\target\test-classes;D:\Projetos_QA\Projeto JAVA\SE_temple_of_rock\project_temple\templeofrock\target\classes;C:\Users\rzamb\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\rzamb\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\rzamb\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\rzamb\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\rzamb\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\rzamb\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\rzamb\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\rzamb\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-java\4.20.0\selenium-java-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-api\4.20.0\selenium-api-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.20.0\selenium-chrome-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.20.0\selenium-chromium-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-json\4.20.0\selenium-json-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.20.0\selenium-manager-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v122\4.20.0\selenium-devtools-v122-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v123\4.20.0\selenium-devtools-v123-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v124\4.20.0\selenium-devtools-v124-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.20.0\selenium-devtools-v85-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.20.0\selenium-edge-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.20.0\selenium-firefox-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-http\4.20.0\selenium-http-4.20.0.jar;C:\Users\rzamb\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.20.0\selenium-ie-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.20.0\selenium-remote-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\com\google\guava\guava\33.1.0-jre\guava-33.1.0-jre.jar;C:\Users\rzamb\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\rzamb\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\rzamb\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\rzamb\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\rzamb\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-api\1.37.0\opentelemetry-api-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-context\1.37.0\opentelemetry-context-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.37.0\opentelemetry-exporter-logging-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.37.0\opentelemetry-sdk-common-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.37.0\opentelemetry-sdk-extension-autoconfigure-spi-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.37.0\opentelemetry-sdk-extension-autoconfigure-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.37.0-alpha\opentelemetry-api-incubator-1.37.0-alpha.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.37.0\opentelemetry-sdk-trace-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.37.0\opentelemetry-sdk-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.37.0\opentelemetry-sdk-metrics-1.37.0.jar;C:\Users\rzamb\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.37.0\opentelemetry-sdk-logs-1.37.0.jar;C:\Users\rzamb\.m2\repository\net\bytebuddy\byte-buddy\1.14.14\byte-buddy-1.14.14.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-os\4.20.0\selenium-os-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.20.0\selenium-safari-driver-4.20.0.jar;C:\Users\rzamb\.m2\repository\org\seleniumhq\selenium\selenium-support\4.20.0\selenium-support-4.20.0.jar;C:\Users\rzamb\.m2\repository\com\codeborne\selenide\7.12.0\selenide-7.12.0.jar;C:\Users\rzamb\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\rzamb\.m2\repository\com\codeborne\selenide-core\7.12.0\selenide-core-7.12.0.jar;C:\Users\rzamb\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.5.1\httpclient5-5.5.1.jar;C:\Users\rzamb\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.3.6\httpcore5-5.3.6.jar;C:\Users\rzamb\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.3.6\httpcore5-h2-5.3.6.jar;C:\Users\rzamb\.m2\repository\com\github\valfirst\browserup-proxy\browserup-proxy-core\3.2.2\browserup-proxy-core-3.2.2.jar;C:\Users\rzamb\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\rzamb\.m2\repository\com\google\errorprone\error_prone_annotations\2.43.0\error_prone_annotations-2.43.0.jar;C:\Users\rzamb\.m2\repository\org\apache\commons\commons-lang3\3.19.0\commons-lang3-3.19.0.jar;C:\Users\rzamb\.m2\repository\commons-io\commons-io\2.20.0\commons-io-2.20.0.jar;C:\Users\rzamb\.m2\repository\com\github\javafaker\javafaker\1.0.2\javafaker-1.0.2.jar;C:\Users\rzamb\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23-android.jar;C:\Users\rzamb\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\rzamb\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;C:\Users\rzamb\.m2\repository\com\google\code\gson\gson\2.11.0\gson-2.11.0.jar;C:\Users\rzamb\.m2\repository\io\qameta\allure\allure-junit5\2.16.1\allure-junit5-2.16.1.jar;C:\Users\rzamb\.m2\repository\io\qameta\allure\allure-junit-platform\2.16.1\allure-junit-platform-2.16.1.jar;C:\Users\rzamb\.m2\repository\io\qameta\allure\allure-java-commons\2.16.1\allure-java-commons-2.16.1.jar;C:\Users\rzamb\.m2\repository\io\qameta\allure\allure-model\2.16.1\allure-model-2.16.1.jar;C:\Users\rzamb\.m2\repository\io\qameta\allure\allure-test-filter\2.16.1\allure-test-filter-2.16.1.jar;C:\Users\rzamb\.m2\repository\org\junit\platform\junit-platform-launcher\1.10.2\junit-platform-launcher-1.10.2.jar;C:\Users\rzamb\.m2\repository\org\slf4j\slf4j-simple\2.0.7\slf4j-simple-2.0.7.jar;"/>
+    <property name="allure.results.directory" value="D:\Projetos_QA\Projeto JAVA\SE_temple_of_rock\project_temple\templeofrock\target/allure-results"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\rzamb"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-10-21"/>
+    <property name="java.home" value="C:\java"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\Projetos_QA\Projeto JAVA\SE_temple_of_rock\project_temple\templeofrock"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\rzamb\AppData\Local\Temp\surefire956245672687223188\surefirebooter-20251203143645962_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.9+10-LTS"/>
+    <property name="user.name" value="rzamb"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.9+10"/>
+    <property name="localRepository" value="C:\Users\rzamb\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\rzamb\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.9"/>
+    <property name="user.dir" value="D:\Projetos_QA\Projeto JAVA\SE_temple_of_rock\project_temple\templeofrock"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\java\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\java\bin;C:\Users\rzamb\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\rzamb\bin;C:\Python314\Scripts;C:\Python314;C:\Python313\Scripts;C:\Python313;C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Apache\apache-maven-3.9.10\bin;C:\Program Files\nodejs;C:\Program Files\RedHat\Podman;C:\Program Files\PostgreSQL\16\bin;C:\Program Files\cursor\resources\app\bin;C:\JAVA\bin;C:\Users\rzamb\AppData\Roaming\npm;C:\Users\rzamb\scoop\shims;C:\Program Files\Eclipse Adoptium\jdk-21.0.2.1-hotspot\bin;C:\Python314\Scripts;C:\Python314;C:\Python313\Scripts;C:\Python313;C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Apache\apache-maven-3.9.10\bin;C:\Program Files\nodejs;C:\Program Files\RedHat\Podman;C:\Program Files\PostgreSQL\16\bin;C:\Program Files\cursor\resources\app\bin;C:\Program Files\Eclipse Adoptium\jdk-21.0.9.10-hotspot\bin;C:\Program Files\Eclipse Adoptium\jdk-21\bin;C:\Program Files\Eclipse Adoptium\jdk-21\bin;C:\Program File;C:\Users\rzamb\AppData\Local\Programs\Windsurf\bin;C:\Users\rzamb\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.9+10-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="consultaListaBandasPorLetra(String)[1]" classname="br.com.templeofrock.tests.TempleOfRockTest" time="4.447">
+    <system-err><![CDATA[dez. 03, 2025 2:36:51 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:36:51 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="consultaListaBandasPorLetra(String)[2]" classname="br.com.templeofrock.tests.TempleOfRockTest" time="2.299">
+    <system-err><![CDATA[dez. 03, 2025 2:36:53 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:36:53 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="consultaListaBandasPorLetra(String)[3]" classname="br.com.templeofrock.tests.TempleOfRockTest" time="2.161">
+    <system-err><![CDATA[dez. 03, 2025 2:36:55 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:36:55 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="consultaListaBandasPorLetra(String)[4]" classname="br.com.templeofrock.tests.TempleOfRockTest" time="2.248">
+    <system-err><![CDATA[dez. 03, 2025 2:36:58 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:36:58 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="editaBandaEIncluiDiscos" classname="br.com.templeofrock.tests.TempleOfRockTest" time="9.274">
+    <system-err><![CDATA[dez. 03, 2025 2:37:00 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:37:00 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="desisteDaEdicaoDeBanda" classname="br.com.templeofrock.tests.TempleOfRockTest" time="8.796">
+    <system-err><![CDATA[dez. 03, 2025 2:37:09 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:37:09 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="cadastraNovaBanda" classname="br.com.templeofrock.tests.TempleOfRockTest" time="19.211">
+    <error message="Expected condition failed: waiting for visibility of element located by By.cssSelector: .success (tried for 10 second(s) with 500 milliseconds interval)&#10;Build info: version: &apos;4.20.0&apos;, revision: &apos;866c76ca80&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.9&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.177, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\rzamb\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51686}, goog:processID: 19372, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51686/devtoo..., se:cdpVersion: 142.0.7444.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: ff0aa56355018acefc0266f5372b9751" type="org.openqa.selenium.TimeoutException"><![CDATA[org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for visibility of element located by By.cssSelector: .success (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.177, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\rzamb\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51686}, goog:processID: 19372, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51686/devtoo..., se:cdpVersion: 142.0.7444.177, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ff0aa56355018acefc0266f5372b9751
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at br.com.templeofrock.pages.RegisterBandPage.registerBand(RegisterBandPage.java:31)
+	at br.com.templeofrock.tests.TempleOfRockTest.cadastraNovaBanda(TempleOfRockTest.java:229)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></error>
+    <system-err><![CDATA[dez. 03, 2025 2:37:18 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:37:18 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="consultaBandaPorNome(String)[1]" classname="br.com.templeofrock.tests.TempleOfRockTest" time="2.581">
+    <system-out><![CDATA[[ApiHelper] attempt 1 - GET http://localhost:9090/api/bands/search?name=Metal+Factor -> status: 200
+[ApiHelper] body: {"_id":"68b6fab3275425ee439c7bd3","name":"Metal Factor","genre":"Heavy Metal","members":["Tony Doe","jhon dick","Jeff more","tommy blair"],"formationYear":1998,"country":"Inglaterra","discography":[{"title":"heavy metal never die","releaseYear":1998,"_id":"68c346f854fe60b6efc895d7"},{"title":"heavy metal never die II","releaseYear":1999,"_id":"68c346f854fe60b6efc895d8"}],"__v":0}
+ID da API: 68b6fab3275425ee439c7bd3
+URL atual: http://localhost:9090/web/bandDetails.html?id=68b6fab3275425ee439c7bd3
+]]></system-out>
+    <system-err><![CDATA[dez. 03, 2025 2:37:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:37:37 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="consultaBandaPorNome(String)[2]" classname="br.com.templeofrock.tests.TempleOfRockTest" time="2.586">
+    <system-out><![CDATA[[ApiHelper] attempt 1 - GET http://localhost:9090/api/bands/search?name=Ultimate+School -> status: 200
+[ApiHelper] body: {"_id":"68b6fa6c275425ee439c7bcb","name":"Ultimate School","genre":"Classic Rock","members":["Mark Pimenta","Peter Jones","Charlie Johnson","Alice Silva"],"formationYear":2008,"country":"New Caledonia","discography":[{"title":"Last leave","releaseYear":2009,"_id":"68f6384b47d164488d15c8d9"},{"title":"Best Of everything","releaseYear":2010,"_id":"68f6384b47d164488d15c8da"},{"title":"Last happy","releaseYear":2011,"_id":"68f6384b47d164488d15c8db"},{"title":"Iron hear","releaseYear":2012,"_id":"68f6384b47d164488d15c8dc"},{"title":"The move","releaseYear":2013,"_id":"68f6384b47d164488d15c8dd"},{"title":"Ultimate create","releaseYear":2014,"_id":"68f6384b47d164488d15c8de"},{"title":"Last phone","releaseYear":2015,"_id":"68f6384b47d164488d15c8df"},{"title":"Iron personal","releaseYear":2016,"_id":"68f6384b47d164488d15c8e0"},{"title":"Last little","releaseYear":2017,"_id":"68f6384b47d164488d15c8e1"},{"title":"Iron cold","releaseYear":2018,"_id":"68f6384b47d164488d15c8e2"}],"__v":0}
+ID da API: 68b6fa6c275425ee439c7bcb
+URL atual: http://localhost:9090/web/bandDetails.html?id=68b6fa6c275425ee439c7bcb
+]]></system-out>
+    <system-err><![CDATA[dez. 03, 2025 2:37:40 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:37:40 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="consultaBandaPorNome(String)[3]" classname="br.com.templeofrock.tests.TempleOfRockTest" time="2.731">
+    <system-out><![CDATA[[ApiHelper] attempt 1 - GET http://localhost:9090/api/bands/search?name=Dr.+Doom -> status: 200
+[ApiHelper] body: {"_id":"68b6fbb8275425ee439c7cb1","name":"Dr. Doom","genre":"Black Metal","members":["Amorphis","Anubis. Azazel","Lilith"],"formationYear":1980,"country":"Noruega","discography":[{"title":"Metal door","releaseYear":1980,"_id":"68b6fbbe275425ee439c7ce8"},{"title":"Deep amount","releaseYear":1981,"_id":"68b6fbbe275425ee439c7ce9"},{"title":"Best Of road","releaseYear":1982,"_id":"68b6fbbe275425ee439c7cea"},{"title":"Last our","releaseYear":1983,"_id":"68b6fbbe275425ee439c7ceb"},{"title":"Last stop","releaseYear":1984,"_id":"68b6fbbe275425ee439c7cec"},{"title":"The matter","releaseYear":1996,"_id":"68b6fcd2275425ee439c7d8e"},{"title":"The raise","releaseYear":1996,"_id":"68b6fd6d275425ee439c7e8c"},{"title":"Metal science","releaseYear":1997,"_id":"68b70846d0f5984e93891ace"},{"title":"Last federal","releaseYear":1988,"_id":"68b9c6bf7e346b9238a5f666"},{"title":"Best Of color","releaseYear":1995,"_id":"68b9c7997e346b9238a5f8f9"},{"title":"Iron president","releaseYear":1992,"_id":"68b9d15d7e34...
+ID da API: 68b6fbb8275425ee439c7cb1
+URL atual: http://localhost:9090/web/bandDetails.html?id=68b6fbb8275425ee439c7cb1
+]]></system-out>
+    <system-err><![CDATA[dez. 03, 2025 2:37:42 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:37:42 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="cadastraNovoUsuarioComSucesso" classname="br.com.templeofrock.tests.TempleOfRockTest" time="2.61">
+    <system-err><![CDATA[dez. 03, 2025 2:37:45 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:37:45 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="verificaTituloPagina" classname="br.com.templeofrock.tests.TempleOfRockTest" time="1.352">
+    <system-err><![CDATA[dez. 03, 2025 2:37:48 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:37:48 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="incluiDiscosParaBanda" classname="br.com.templeofrock.tests.TempleOfRockTest" time="8.196">
+    <system-err><![CDATA[dez. 03, 2025 2:37:49 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:37:49 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="fazLoginComFalha" classname="br.com.templeofrock.tests.TempleOfRockTest" time="2.445">
+    <system-err><![CDATA[dez. 03, 2025 2:37:57 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:37:57 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="cadastraUsuarioComEmailInvalido" classname="br.com.templeofrock.tests.TempleOfRockTest" time="2.494">
+    <system-err><![CDATA[dez. 03, 2025 2:38:00 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:38:00 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="fazLoginComSucesso" classname="br.com.templeofrock.tests.TempleOfRockTest" time="2.425">
+    <system-err><![CDATA[dez. 03, 2025 2:38:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTÊNCIA: Unable to find CDP implementation matching 142
+dez. 03, 2025 2:38:02 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTÊNCIA: Unable to find version of CDP to use for 142.0.7444.177. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+</testsuite>

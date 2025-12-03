@@ -1,5 +1,4 @@
-# Maven
-target/
+
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -20,5 +19,5 @@ gradle-app.setting
 *.log
 Notas.md
 .vscode/
-.allure/
+
 

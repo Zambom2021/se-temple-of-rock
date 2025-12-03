@@ -2,9 +2,9 @@ name: Selenium Tests with Allure
 
 on:
   push:
-    branches: ["main"]
+    branches: ["develop", "main"]
   pull_request:
-    branches: ["main"]
+    branches: ["develop", "main"]
   workflow_dispatch:
 
 jobs:
@@ -39,14 +39,6 @@ jobs:
             sleep 3
           done
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 22
-
-      - name: Install dependencies
-        run: npm install
-
       # -----------------------------
       # CONFIGURAR JAVA 21
       # -----------------------------
@@ -61,14 +53,9 @@ jobs:
       # -----------------------------
       - name: Install Chrome
         run: |
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install -y ./google-chrome-stable_current_amd64.deb
-
-      - name: Install ChromeDriver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromedriver
-          chromedriver --version
+          google-chrome --version
 
       # -----------------------------
       # INSTALAR DEPENDÊNCIAS MAVEN

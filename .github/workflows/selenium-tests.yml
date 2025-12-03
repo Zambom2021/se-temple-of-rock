@@ -58,7 +58,7 @@ jobs:
 
       # Rodar testes Selenium (headless)
       - name: Run tests
-        run: HEADLESS=true mvn -B test
+        run: HEADLESS=true mvn -B test | tee test-output.log
 
       # Gerar Allure report apenas se houver resultados
       - name: Generate Allure Report

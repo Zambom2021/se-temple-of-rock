@@ -47,28 +47,29 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      # Instalar Google Chrome e ChromeDriver compatível
-      - name: Install Google Chrome + Driver
+      # Instalar Google Chrome + ChromeDriver compatível
+      - name: Install Google Chrome + ChromeDriver
         run: |
           sudo apt-get update
-          sudo apt-get install -y unzip xvfb
+          sudo apt-get install -y unzip xvfb wget
 
           wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install -y ./google-chrome-stable_current_amd64.deb
 
-          # Obtém versão do Chrome
+          # Chrome version
           CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
           CHROME_MAJOR=$(echo $CHROME_VERSION | cut -d. -f1)
 
-          echo "Chrome Version: $CHROME_VERSION"
+          echo "Chrome version: $CHROME_VERSION"
 
-          # Baixa ChromeDriver compatível automaticamente
-          DRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION/linux64/chromedriver-linux64.zip"
+          # Baixar ChromeDriver compatível
+          DRIVER_URL="https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_MAJOR"
+          DRIVER_VERSION=$(wget -qO- $DRIVER_URL)
+          echo "ChromeDriver version: $DRIVER_VERSION"
 
-          echo "Downloading ChromeDriver: $DRIVER_URL"
-          wget -q $DRIVER_URL -O driver.zip
-          unzip driver.zip
-          sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
+          wget -q "https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip" -O driver.zip
+          unzip -o driver.zip
+          sudo mv chromedriver /usr/bin/chromedriver
           sudo chmod +x /usr/bin/chromedriver
 
           chromedriver --version
@@ -78,14 +79,20 @@ jobs:
       - name: Install Dependencies
         run: mvn -B install -DskipTests
 
-      # Rodar testes Selenium
+      # Rodar testes Selenium (headless)
       - name: Run tests
-        run: mvn -B test
+        run: mvn -B test | tee test-output.log
 
-      # Gerar Allure report
+      # Gerar Allure report apenas se houver resultados
       - name: Generate Allure Report
         if: always()
-        run: mvn allure:report
+        run: |
+          if [ -d target/allure-results ] && [ "$(ls -A target/allure-results)" ]; then
+            echo "Generating Allure report..."
+            mvn allure:report
+          else
+            echo "No allure results found, skipping report generation."
+          fi
 
       # Upload resultados Allure
       - name: Upload Allure Results
@@ -107,3 +114,8 @@ jobs:
       - name: Down Docker
         if: always()
         run: docker compose -f app/docker-compose.yml down -v
+
+      # Exibir logs
+      - name: Show logs
+        if: always()
+        run: cat test-output.log

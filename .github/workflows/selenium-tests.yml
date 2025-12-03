@@ -47,33 +47,10 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      # Instalar Google Chrome + ChromeDriver compatível
-      - name: Install Google Chrome + ChromeDriver
+      - name: Install Google Chrome
         run: |
           sudo apt-get update
-          sudo apt-get install -y unzip xvfb wget
-
-          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt install -y ./google-chrome-stable_current_amd64.deb
-
-          # Chrome version
-          CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
-          CHROME_MAJOR=$(echo $CHROME_VERSION | cut -d. -f1)
-
-          echo "Chrome version: $CHROME_VERSION"
-
-          # Baixar ChromeDriver compatível
-          DRIVER_URL="https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_MAJOR"
-          DRIVER_VERSION=$(wget -qO- $DRIVER_URL)
-          echo "ChromeDriver version: $DRIVER_VERSION"
-
-          wget -q "https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip" -O driver.zip
-          unzip -o driver.zip
-          sudo mv chromedriver /usr/bin/chromedriver
-          sudo chmod +x /usr/bin/chromedriver
-
-          chromedriver --version
-          google-chrome --version
+          sudo apt-get install -y google-chrome-stable
 
       # Instalar dependências Maven
       - name: Install Dependencies

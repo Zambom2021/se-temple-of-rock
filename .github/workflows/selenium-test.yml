@@ -1,0 +1,136 @@
+name: Selenium Tests with Allure
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  selenium-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # -----------------------------
+      # CHECKOUT DO REPOSITÓRIO
+      # -----------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v3
+    
+      - name: Checkout app repo
+        uses: actions/checkout@v3
+        with:
+          repository: Zambom2021/temple-of-rock
+          token: ${{ secrets.TEMPLE_TOKEN }}
+          path: app
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Start app with Docker Compose
+        run: |
+          cd app
+          docker compose up -d --build
+          echo "Waiting for backend to be ready..."
+          for i in {1..30}; do
+            curl -s http://localhost:9090/health && break
+            echo "Waiting 3s..."
+            sleep 3
+          done
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      # -----------------------------
+      # CONFIGURAR JAVA 21
+      # -----------------------------
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      # -----------------------------
+      # INSTALAR CHROME E CHROMEDRIVER
+      # -----------------------------
+      - name: Install Chrome
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install -y ./google-chrome-stable_current_amd64.deb
+
+      - name: Install ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromedriver
+          chromedriver --version
+
+      # -----------------------------
+      # INSTALAR DEPENDÊNCIAS MAVEN
+      # -----------------------------
+      - name: Install dependencies
+        run: mvn -B install -DskipTests
+
+      # -----------------------------
+      # EXECUTAR TESTES SELENIUM + ALLURE
+      # (gera target/allure-results)
+      # -----------------------------
+      - name: Run Selenium tests
+        run: mvn -B test
+
+      # -----------------------------
+      # GERAR RELATÓRIO ALLURE HTML
+      # (gera target/site/allure-maven-plugin)
+      # -----------------------------
+      - name: Generate Allure Report
+        if: always()
+        run: mvn allure:report
+
+      # -----------------------------
+      # UPLOAD DOS RESULTADOS ALLURE
+      # -----------------------------
+      - name: Upload Allure Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: target/allure-results
+
+      # -----------------------------
+      # UPLOAD DO RELATÓRIO HTML
+      # -----------------------------
+      - name: Upload Allure Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: target/site/allure-maven-plugin
+
+      # -----------------------------
+      # (Opcional) UPLOAD SCREENSHOTS
+      # se você salva os prints em target/screenshots/
+      # -----------------------------
+      - name: Upload Screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-screenshots
+          path: target/screenshots
+          if-no-files-found: ignore
+
+      # -----------------------------
+      # (Opcional) UPLOAD VIDEOS
+      # se vocé salva os videos em target/videos/
+      # -----------------------------
+      - name: Upload Videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-videos
+          path: target/videos
+          if-no-files-found: ignore

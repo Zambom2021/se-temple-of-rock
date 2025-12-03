@@ -12,75 +12,58 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # -----------------------------
-      # CHECKOUT DO REPOSITÓRIO
-      # -----------------------------
-      - name: Checkout repository
+      # Checkout do repositório de testes
+      - name: Checkout test repo
         uses: actions/checkout@v3
-    
-      - name: Checkout app repo
+
+      # Checkout do backend
+      - name: Checkout backend repo
         uses: actions/checkout@v3
         with:
           repository: Zambom2021/temple-of-rock
           token: ${{ secrets.TEMPLE_TOKEN }}
           path: app
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Start app with Docker Compose
+      # Subir backend em Docker
+      - name: Start Backend
         run: |
           cd app
           docker compose up -d --build
-          echo "Waiting for backend to be ready..."
+          echo "Aguardando backend ficar pronto..."
           for i in {1..30}; do
             curl -s http://localhost:9090/health && break
-            echo "Waiting 3s..."
+            echo "Aguardando 3s..."
             sleep 3
           done
 
-      # -----------------------------
-      # CONFIGURAR JAVA 21
-      # -----------------------------
-      - name: Set up JDK 21
+      # Instalar Java
+      - name: Setup Java 21
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '21'
 
-      # -----------------------------
-      # INSTALAR CHROME E CHROMEDRIVER
-      # -----------------------------
-      - name: Install Chrome
+      # Instalar Chrome
+      - name: Install Google Chrome
         run: |
           wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install -y ./google-chrome-stable_current_amd64.deb
           google-chrome --version
 
-      # -----------------------------
-      # INSTALAR DEPENDÊNCIAS MAVEN
-      # -----------------------------
-      - name: Install dependencies
+      # Instalar dependências Maven
+      - name: Install Dependencies
         run: mvn -B install -DskipTests
 
-      # -----------------------------
-      # EXECUTAR TESTES SELENIUM + ALLURE
-      # (gera target/allure-results)
-      # -----------------------------
-      - name: Run Selenium tests
+      # Rodar testes Selenium
+      - name: Run Selenium Tests
         run: mvn -B test
 
-      # -----------------------------
-      # GERAR RELATÓRIO ALLURE HTML
-      # (gera target/site/allure-maven-plugin)
-      # -----------------------------
+      # Gerar Allure report
       - name: Generate Allure Report
         if: always()
         run: mvn allure:report
 
-      # -----------------------------
-      # UPLOAD DOS RESULTADOS ALLURE
-      # -----------------------------
+      # Upload resultados Allure
       - name: Upload Allure Results
         if: always()
         uses: actions/upload-artifact@v4
@@ -88,36 +71,15 @@ jobs:
           name: allure-results
           path: target/allure-results
 
-      # -----------------------------
-      # UPLOAD DO RELATÓRIO HTML
-      # -----------------------------
-      - name: Upload Allure Report
+      # Upload relatório completo HTML
+      - name: Upload Allure HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: target/site/allure-maven-plugin
 
-      # -----------------------------
-      # (Opcional) UPLOAD SCREENSHOTS
-      # se você salva os prints em target/screenshots/
-      # -----------------------------
-      - name: Upload Screenshots
+      # Encerrar containers
+      - name: Down Docker
         if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: selenium-screenshots
-          path: target/screenshots
-          if-no-files-found: ignore
-
-      # -----------------------------
-      # (Opcional) UPLOAD VIDEOS
-      # se vocé salva os videos em target/videos/
-      # -----------------------------
-      - name: Upload Videos
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: selenium-videos
-          path: target/videos
-          if-no-files-found: ignore
+        run: docker compose -f app/docker-compose.yml down -v

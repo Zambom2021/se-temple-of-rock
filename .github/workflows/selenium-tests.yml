@@ -1,4 +1,4 @@
-name: Selenium Tests with Allure
+name: Selenium Tests
 
 on:
   push:
@@ -59,33 +59,6 @@ jobs:
       # Rodar testes Selenium (headless)
       - name: Run tests
         run: HEADLESS=true mvn -B test | tee test-output.log
-
-      # Gerar Allure report apenas se houver resultados
-      - name: Generate Allure Report
-        if: always()
-        run: |
-          if [ -d target/allure-results ] && [ "$(ls -A target/allure-results)" ]; then
-            echo "Generating Allure report..."
-            mvn allure:report
-          else
-            echo "No allure results found, skipping report generation."
-          fi
-
-      # Upload resultados Allure
-      - name: Upload Allure Results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: target/allure-results
-
-      # Upload relatório completo HTML
-      - name: Upload Allure HTML Report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report
-          path: target/site/allure-maven-plugin
 
       # Encerrar containers
       - name: Down Docker

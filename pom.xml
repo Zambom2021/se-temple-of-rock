@@ -90,7 +90,7 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
-            <version>2.16.1</version>
+            <version>${allure.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -116,11 +116,15 @@
             <id>central</id>
             <url>https://repo.maven.apache.org/maven2</url>
         </repository>
+
+        <repository>
+            <id>qameta-allure</id>
+            <url>https://dl.bintray.com/qameta/maven</url>
+        </repository>
     </repositories>
 
     <build>
         <plugins>
-
             <!-- Surefire -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -134,15 +138,11 @@
                 </configuration>
             </plugin>
 
-            <build>
-              <plugins>
-                <plugin>
-                  <groupId>io.qameta.allure</groupId>
-                  <artifactId>allure-maven</artifactId>
-                  <version>2.13.9</version> <!-- funciona estável com Maven e JUnit5 -->
-                </plugin>
-              </plugins>
-            </build>
+            <plugin>
+              <groupId>io.qameta.allure</groupId>
+              <artifactId>allure-maven</artifactId>
+              <version>${allure.version}</version> 
+            </plugin>
 
         </plugins>
     </build>

@@ -66,6 +66,9 @@ jobs:
 
       - name: Run Tests
         run: HEADLESS=true mvn -B test
+      
+      - name: Clean Maven cache
+        run: mvn dependency:purge-local-repository -DreResolve=true
 
       # 🔥 Gera o relatório HTML (target/allure-report)
       - name: Generate Allure HTML Report

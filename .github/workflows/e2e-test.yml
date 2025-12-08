@@ -1,9 +1,19 @@
 name: e2e Tests with Allure
 
 on:
-  pull_request:
+  push:
     branches: ["develop", "main"]
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Escolha o navegador de sua preferência'
+        required: true
+        default: 'chrome'
+        type: choice
+        options:
+          - chrome
+          - firefox
+          - edge
 
 jobs:
   selenium-tests:

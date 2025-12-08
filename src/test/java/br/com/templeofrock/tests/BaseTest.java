@@ -1,5 +1,6 @@
 package br.com.templeofrock.tests;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +17,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.ByteArrayInputStream;
 import java.time.Duration;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 @ExtendWith(AllureTestWatcher.class)
 public class BaseTest {
 
@@ -24,6 +29,11 @@ public class BaseTest {
 
     @BeforeEach
     public void setup() {
+
+        // Desativa warnings do Selenium
+        Logger.getLogger("org.openqa.selenium").setLevel(Level.SEVERE);
+
+        WebDriverManager.chromedriver().setup();
         
         ChromeOptions options = new ChromeOptions();
 
@@ -42,7 +52,7 @@ public class BaseTest {
             options.addArguments("--start-maximized");
         }
 
-        driver = new ChromeDriver(options);  // ← AGORA USA AS OPÇÕES CORRETAMENTE
+        driver = new ChromeDriver(options);  
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 

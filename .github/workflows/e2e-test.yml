@@ -1,4 +1,4 @@
-name: e2e Tests with Allure's fail
+name: e2e Tests with Allure
 
 on:
   pull_request:
@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout do repositório de testes
       - name: Checkout test repo
         uses: actions/checkout@v3
 
-      # Checkout do backend
       - name: Checkout backend repo
         uses: actions/checkout@v3
         with:
@@ -22,30 +20,27 @@ jobs:
           token: ${{ secrets.TEMPLE_TOKEN }}
           path: app
 
-      # Subir backend em Docker
       - name: Start Backend
         run: |
           cd app
           docker compose up -d --build
 
-          echo "Aguardando backend ficar pronto..."
+          echo "Aguardando backend subir..."
           for i in {1..40}; do
             if curl -s http://localhost:9090/web/ >/dev/null; then
               echo "Backend OK"
               break
             fi
-            echo "Backend ainda iniciando... ($i)"
+            echo "Iniciando... ($i)"
             sleep 3
           done
 
-      # Instalar Java
       - name: Setup Java 21
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '21'
 
-      # Instalar Google Chrome e ChromeDriver compatível
       - name: Install Google Chrome + Driver
         run: |
           sudo apt-get update
@@ -54,16 +49,10 @@ jobs:
           wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install -y ./google-chrome-stable_current_amd64.deb
 
-          # Obtém versão do Chrome
           CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
-          CHROME_MAJOR=$(echo $CHROME_VERSION | cut -d. -f1)
-
-          echo "Chrome Version: $CHROME_VERSION"
-
-          # Baixa ChromeDriver compatível automaticamente
           DRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION/linux64/chromedriver-linux64.zip"
 
-          echo "Downloading ChromeDriver: $DRIVER_URL"
+          echo "Chrome version: $CHROME_VERSION"
           wget -q $DRIVER_URL -O driver.zip
           unzip driver.zip
           sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
@@ -72,20 +61,18 @@ jobs:
           chromedriver --version
           google-chrome --version
 
-      # Instalar dependências Maven
       - name: Install Dependencies
         run: mvn -B install -DskipTests
 
-      # Rodar testes Selenium
-      - name: Run tests
+      - name: Run Tests
         run: HEADLESS=true mvn -B test
 
-      # Gerar Allure report
-      - name: Generate Allure Report
+      # 🔥 Gera o relatório HTML (target/allure-report)
+      - name: Generate Allure HTML Report
         if: always()
         run: mvn allure:report
 
-      # Upload resultados Allure
+      # 🔥 Envia apenas os arquivos corretos do Allure
       - name: Upload Allure Results
         if: always()
         uses: actions/upload-artifact@v4
@@ -93,15 +80,13 @@ jobs:
           name: allure-results
           path: target/allure-results
 
-      # Upload relatório completo HTML
       - name: Upload Allure HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: target/site/allure-maven-plugin
+          path: target/allure-report
 
-      # Encerrar containers
       - name: Down Docker
         if: always()
         run: docker compose -f app/docker-compose.yml down -v
